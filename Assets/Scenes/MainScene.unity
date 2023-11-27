@@ -358,3 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4593070d3623f284abce2474c13b2d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 780963041}
+  moveSpeed: 10
+  lookOffset: -90
