@@ -19,13 +19,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Move()
     {
         float moveX = Input.GetAxisRaw("Horizontal"), moveY = Input.GetAxisRaw("Vertical");
         movement = new Vector2(moveX, moveY).normalized;
         rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movement);
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+    }
+     
     private void LookAtMouse()
     {
         // Get player to mouse position direction
