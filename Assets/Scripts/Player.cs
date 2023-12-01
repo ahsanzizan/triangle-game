@@ -8,9 +8,9 @@ public class Player : MonoBehaviour
 
     Shooting shooting;
     PlayerMovement playerMovement;
+    public Rigidbody2D rb;
 
     [Header("Movement")]
-    Rigidbody2D rb;
     public float moveSpeed = 10f;
     public float lookOffset = -90f;
 
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        if (rb == null) rb = this.GetComponent<Rigidbody2D>();
         shooting = this.GetComponent<Shooting>();
         playerMovement = this.GetComponent<PlayerMovement>();
     }
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         playerMovement.LookAtMouse(lookOffset: lookOffset);
-        shooting.Shoot(isAuto: false, fireRate: fireRate, bullet, shootPoint, Input.GetMouseButtonDown(0));
+        shooting.Shoot(isAuto: false, fireRate: fireRate, bullet: bullet, shootPoint: shootPoint, conditionToShoot: Input.GetMouseButtonDown(0));
     }
 
     private void FixedUpdate()

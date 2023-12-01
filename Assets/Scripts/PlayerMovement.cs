@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Must be called in FixedUpdate
+    // Must be called at FixedUpdate
     public void Move(Rigidbody2D rb, float moveSpeed)
     {
         float moveX = Input.GetAxisRaw("Horizontal"), moveY = Input.GetAxisRaw("Vertical");

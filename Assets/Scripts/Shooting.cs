@@ -4,29 +4,19 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform shootPoint;
-
+    private float timeBtwShots = 0;
 
     public void Shoot(bool isAuto, float fireRate, GameObject bullet, Transform shootPoint, bool conditionToShoot = true)
     {
-        float timeBtwShots = fireRate;
-
         if (timeBtwShots <= 0)
         {
-            if (!isAuto)
-            {
-                if (conditionToShoot)
-                {
-                    Instantiate(bullet, shootPoint.position, shootPoint.rotation);
-                    timeBtwShots = fireRate;
-                }
-            } else
+            if (isAuto || conditionToShoot)
             {
                 Instantiate(bullet, shootPoint.position, shootPoint.rotation);
                 timeBtwShots = fireRate;
             }
-        } else
+        }
+        else
         {
             timeBtwShots -= Time.deltaTime;
         }
